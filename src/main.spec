@@ -17,6 +17,9 @@ a = Analysis(['main.py'],
              win_private_assemblies=False,
              cipher=block_cipher,
              noarchive=False)
+
+a.datas += [('newMapBtn.png', '', "DATA")]
+
 pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 

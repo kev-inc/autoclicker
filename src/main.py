@@ -1,11 +1,20 @@
 import pyautogui as pt
 import time
 import random
+import os
 
 pt.FAILSAFE = True
-target_png = 'images/backBtn.png'
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 def nav_to_image():
+    target_png = resource_path('newMapBtn.png')
     position = pt.locateCenterOnScreen(target_png, grayscale=True, confidence=0.9)
     pt.doubleClick(position[0] + random.uniform(-5, 5) , position[1] + random.uniform(-5, 5))
 

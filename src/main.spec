@@ -18,8 +18,6 @@ a = Analysis(['main.py'],
              cipher=block_cipher,
              noarchive=False)
 
-a.datas += [('newMapBtn.png', '', "DATA")]
-
 pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 

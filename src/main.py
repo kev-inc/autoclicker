@@ -4,18 +4,11 @@ import random
 import os
 
 pt.FAILSAFE = True
-
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
+target_png = 'target.png'
 
 def nav_to_image():
-    target_png = resource_path('newMapBtn.png')
-    position = pt.locateCenterOnScreen(target_png, grayscale=True, confidence=0.9)
+    position = pt.locateCenterOnScreen(target_png, grayscale=True, confidence=0.7)
+    print(position)
     pt.doubleClick(position[0] + random.uniform(-5, 5) , position[1] + random.uniform(-5, 5))
 
 print("Starting in 3 seconds... Please ensure that the whole game is visible on screen.")
